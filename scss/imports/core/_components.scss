@@ -1,0 +1,566 @@
+// css img, button, heading, title, input, elements, components...
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    &.--center {
+        margin: 0 auto;
+        display: block;
+    }
+}
+a {
+    text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+    color: $white !important;
+}
+.--black-cl {
+    color: $black !important;
+}
+
+.--cursor-pointer {
+    cursor: pointer;
+    &::selection {
+        background-color: transparent;
+    }
+    * {
+        &::selection {
+            background-color: transparent;
+        }
+    }
+}
+.btn {
+    @include mid(true);
+    height: var(--height-button);
+    @include text(1.1rem, mp, 2rem, $white, uppercase);
+    letter-spacing: 0;
+    background-color: $dark;
+    overflow: hidden;
+    &.--normal,
+    &.--light {
+        font-family: Arial;
+        font-weight: bold;
+        padding: 1rem 4.6rem;
+        border: 1px solid $gray-border;
+        @include transition($t $cubic);
+        &:hover {
+            color: $light;
+            background-color: $select-bg2;
+            @include transition($t $cubic);
+        }
+    }
+    &.--light {
+        color: $dark;
+        background-color: $light;
+    }
+    &.--home {
+        position: relative;
+        padding: 1rem 4.2rem;
+        border-radius: 6px;
+        border: 1px solid $dark;
+        @include transition($t $cubic);
+        span {
+            z-index: 1;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $light;
+            border-radius: 6px;
+            border: 1px solid $light;
+            z-index: 0;
+            @include transform(scaleX(0));
+            @include transform-origin(right center);
+            @include transition(transform $t $cubic);
+        }
+        &:hover {
+            font-weight: bold;
+            color: $dark;
+            @include transition($t $cubic);
+            &::before {
+                @include transform(scaleX(1));
+                @include transform-origin(left center);
+                @include transition(transform $t $cubic);
+            }
+        }
+    }
+    &.--more {
+        display: inline-flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        height: max-content;
+        background-color: transparent;
+        @include text(1.2rem, arial, 4rem, $text-cl2, capitalize);
+        font-weight: bold;
+        &::before {
+            content: "";
+            width: 2.2rem;
+            height: 0.8rem;
+            background-image: url(../img/home_page/arrow_menu.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            @include transition($t $cubic);
+        }
+        &:hover {
+            &::before {
+                @include transform(translateX(20%));
+                @include transition($t $cubic);
+            }
+        }
+    }
+    &::selection {
+        background-color: transparent;
+    }
+    * {
+        &::selection {
+            background-color: transparent;
+        }
+    }
+    @include sm {
+        &.--normal,
+        &.--light,
+        &.--home {
+            padding: 2.2rem 7rem;
+            font-size: 1.8rem;
+            line-height: 3.3rem;
+        }
+    }
+}
+.scroll-top {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-tooltip);
+    width: 100%;
+    @include visible(0);
+    @include transition($t $cubic);
+    &__wrap {
+        position: relative;
+        margin: 0 7.2rem;
+        &-text {
+            display: flex;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            cursor: pointer;
+            letter-spacing: 1.6px;
+            @include text(1rem, arial, 2.6rem, #aaaaaa, uppercase);
+            @include transform(rotate(90deg));
+            @include transform-origin(right center);
+            @include transition($t $cubic);
+            &:before {
+                content: "";
+                position: absolute;
+                top: 50%;
+                right: calc(100% + 2rem);
+                width: 13rem;
+                height: 1px;
+                background-color: $scroll-top;
+                @include transform(translateY(-50%));
+                @include transition($t $cubic);
+            }
+            &:hover {
+                color: $white;
+                &::before {
+                    background-color: $gold;
+                }
+            }
+        }
+    }
+    &.show {
+        @include visible(1);
+        @include transition($t $cubic);
+    }
+    @include sm {
+        &__wrap {
+            margin: 0 -2rem;
+            &-text {
+                bottom: 13.6rem;
+                font-size: 1.8rem;
+                line-height: 5.2rem;
+                &:before {
+                    right: calc(100% + 4.6rem);
+                    width: 25.9rem;
+                    height: 2px;
+                }
+            }
+        }
+    }
+    @include xxs {
+        &__wrap {
+            margin: 0;
+        }
+    }
+}
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    visibility: hidden;
+    opacity: 0;
+    z-index: var(--z-fixed);
+    @include transition($cubic $t);
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.card {
+    &__image {
+        display: block;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 316/365;
+        overflow: hidden;
+        &-img {
+            @include midimg(100%);
+        }
+    }
+    &__content {
+        &-title {
+            @include text(1.8rem, arial, 4rem, $text-cl2, none);
+            letter-spacing: -0.4px;
+            padding-top: 2rem;
+        }
+        &-price {
+            display: flex;
+            @include text(1.2rem, arial, 4rem, $text-cl2, uppercase);
+            letter-spacing: 1.6px;
+            margin-bottom: 0.9rem;
+        }
+        &-btn {
+            width: max-content;
+        }
+    }
+}
+.article {
+    --bg-cl: #ffffff;
+    --text-cl: #010101;
+    &__image {
+        display: block;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 316/206;
+        background-color: #ebebeb;
+        //padding-top: 20.8rem;
+        overflow: hidden;
+        &-img {
+            @include midimg(100%);
+            @include transform(translate(-50%, -50%) scale(1));
+            @include transition($t $cubic);
+        }
+    }
+    &__content {
+        color: var(--text-cl);
+        background-color: var(--bg-cl);
+        padding: 1.4rem 2rem 1rem;
+        @include transition($t $cubic);
+        &-title,
+        &-desc {
+            font-size: 1.2rem;
+            font-family: Arial;
+            line-height: 2rem;
+            letter-spacing: -0.4px;
+        }
+        &-title {
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-block: 2.2rem;
+        }
+        &-desc {
+            max-width: 26rem;
+            padding-bottom: 1.8rem;
+        }
+        .btn {
+            font-size: 1.1rem;
+            color: var(--text-cl);
+            font-weight: bold;
+            text-transform: uppercase;
+            @include transition($t $cubic);
+            &::before {
+                @include transition($t $cubic);
+            }
+        }
+    }
+    &:hover {
+        --bg-cl: #6d5019;
+        --text-cl: #ffffff;
+        .article__image {
+            &-img {
+                @include transform(translate(-50%, -50%) scale(1.125));
+                @include transition($t $cubic);
+            }
+        }
+        .article__content {
+            @include transition($t $cubic);
+        }
+        .btn {
+            @include transition($t $cubic);
+            &::before {
+                background-image: url(../img/news/arrow_white_icon.png);
+                @include transition($t $cubic);
+            }
+        }
+    }
+}
+.row-border-gap {
+    position: relative;
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 1px;
+        height: calc(100% - 6rem);
+        background-color: $gray-line;
+    }
+    &::before {
+        left: 33.333%;
+    }
+    &::after {
+        left: 66.666%;
+    }
+    @include sm {
+        &::before {
+            left: 50%;
+        }
+        &::after {
+            display: none;
+        }
+    }
+    @include xs {
+        &::before {
+            display: none;
+        }
+    }
+}
+.pagination-menu {
+    @include mid(true);
+    gap: 2rem;
+    li {
+        @include transition($t $cubic);
+        a {
+            @include mid(true);
+            width: 3.3rem;
+            height: 3.3rem;
+            background-repeat: no-repeat;
+            background-size: 50% 50%;
+            background-position: center;
+            @include text(1.2rem, arial, 2rem, #232323, none);
+            @include transition($t $cubic);
+            &::selection {
+                background-color: transparent;
+            }
+        }
+        &::after {
+            position: absolute;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #585958;
+            @include visible(0);
+            @include transition($t $cubic);
+        }
+        &.disable {
+            @include visible(0);
+            @include transition($t $cubic);
+        }
+        &.active {
+            pointer-events: none;
+        }
+        &.active,
+        &:hover {
+            position: relative;
+            background-color: #ebebeb;
+            @include transition($t $cubic);
+            &::after {
+                @include visible(1);
+            }
+        }
+        &.previous-page {
+            a {
+                background-image: url(../img/news/reshot-icon-arrow-chevron-left.svg);
+            }
+        }
+        &.next-page {
+            a {
+                background-image: url(../img/news/reshot-icon-arrow-chevron-right.svg);
+            }
+        }
+    }
+}
+.turn_back {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding-block: 4.2rem;
+    @include transition(transform $t $cubic);
+    &__logo {
+        display: inline-flex;
+        @include mid;
+        width: 9rem;
+        padding-top: 6.9rem;
+        img {
+            @include midimg(100%);
+        }
+    }
+    &__link {
+        @include text(1.1rem, mp, 3rem, $text-cl, uppercase);
+        display: inline-flex;
+        gap: 4.3rem;
+        align-items: baseline;
+        letter-spacing: 0;
+        @include transition($t $cubic);
+        &::after {
+            content: "";
+            background-image: url(../img/product_page/arrow_left.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 2.2rem;
+            height: 0.8rem;
+            @include transition(transform $t $cubic);
+        }
+        &:hover {
+            font-weight: bold;
+            @include transition($t $cubic);
+            &::after {
+                @include transform(translateX(-1.5rem));
+                @include transition(transform $t $cubic);
+            }
+        }
+    }
+    @include sm {
+        padding-block: 0.75rem;
+        &__logo {
+            display: none;
+        }
+    }
+}
+.select {
+    position: relative;
+    &__btn,
+    &__options {
+        @include text(1.1rem, arial, 2rem, $white, uppercase);
+        font-weight: bold;
+        letter-spacing: 0;
+    }
+    &__btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        min-width: 20rem;
+        padding-left: 4.2rem;
+        padding-block: 0.8rem;
+        background-color: $select-bg;
+        span {
+            max-width: 11rem;
+            @include overtext(1);
+        }
+        &::after {
+            position: absolute;
+            right: 2.4rem;
+            top: 50%;
+            @include transform(translateY(-50%));
+            content: "";
+            width: 1rem;
+            height: 0.6rem;
+            background-image: url(../img/project/select_icon.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+    &__options {
+        position: absolute;
+        width: 100%;
+        max-height: 20rem;
+        padding-block: 1.2rem 0.4rem;
+        background-color: $select-bg2;
+        overflow-y: scroll;
+        z-index: 1;
+        @include customscroll(0.4rem, $select-bg2, $select-bg);
+        @include visible(0);
+        @include transform(scaleY(0));
+        @include transform-origin(center top);
+        @include transition($t $cubic);
+        &-item {
+            padding-left: 4.2rem;
+            padding-block: 1.4rem;
+            @include transition($t $cubic);
+            &:not(:last-child) {
+                border-bottom: 1px solid $select-line;
+            }
+            &:hover {
+                background-color: $select-bg;
+                @include transition($t $cubic);
+            }
+        }
+        &.mobi {
+            display: none;
+            max-height: initial;
+            font-size: 2rem;
+            line-height: 4rem;
+            letter-spacing: 1.6;
+            padding-block: var(--height-header);
+            z-index: var(--z-fixed);
+            @include fullscreen(true);
+            @include transform(scaleX(0));
+            @include transform-origin(right center);
+            &.show {
+                @include visible(1);
+                @include transform(scaleX(1));
+            }
+        }
+    }
+    &__btn,
+    &__options-item {
+        cursor: pointer;
+        &::selection {
+            background-color: transparent;
+        }
+        * {
+            &::selection {
+                background-color: transparent;
+            }
+        }
+    }
+    &.active {
+        .select__options {
+            @include visible(1);
+            @include transform(scaleY(1));
+        }
+    }
+    @include sm {
+        &__btn {
+            padding-left: 2.4rem;
+            &::after {
+                width: 2rem;
+                height: 2rem;
+                background-image: url(../img/project/filter_icon.png);
+            }
+        }
+        &__options {
+            display: none;
+            &.mobi {
+                display: block;
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+/* FONT FACE - font-display: fallback; */
+
+/* VÍ DỤ - tuỳ chỉnh theo từng dự án*/
+@font-face {
+    font-family: 'mp900';
+    src: url('../fonts/MyriadPro-Black.woff2') format('woff2'),
+        url('../fonts/MyriadPro-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mpbi';
+    src: url('../fonts/MyriadPro-BoldIt.woff2') format('woff2'),
+        url('../fonts/MyriadPro-BoldIt.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mpb';
+    src: url('../fonts/MyriadPro-Bold.woff2') format('woff2'),
+        url('../fonts/MyriadPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mpi';
+    src: url('../fonts/MyriadPro-It.woff2') format('woff2'),
+        url('../fonts/MyriadPro-It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mp';
+    src: url('../fonts/MyriadPro-Regular.woff2') format('woff2'),
+        url('../fonts/MyriadPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mpsbi';
+    src: url('../fonts/MyriadPro-SemiboldIt.woff2') format('woff2'),
+        url('../fonts/MyriadPro-SemiboldIt.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'mpsb';
+    src: url('../fonts/MyriadPro-Semibold.woff2') format('woff2'),
+        url('../fonts/MyriadPro-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+}
+
+
+
+/*  */
+
+@font-face {
+    font-family: 'eb';
+    src: url('../fonts/ElleBaskerville.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'ebb';
+    src: url('../fonts/ElleBaskerville-Bold.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'ebi';
+    src: url('../fonts/ElleBaskerville-Italic.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'ebbi';
+    src: url('../fonts/ElleBaskerville-BoldItalic.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'ebsb';
+    src: url('../fonts/ElleBaskerville-SemiBold.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'ebsbi';
+    src: url('../fonts/ElleBaskerville-SemiBoldItalic.woff2') format('woff2'),
+        url('../fonts/ElleBaskerville-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: fallback;
+}
+

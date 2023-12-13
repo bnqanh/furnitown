@@ -1,0 +1,403 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: var(--z-fixed);
+    &__top {
+        display: flex;
+        gap: 4rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding-left: var(--gap);
+        padding-block: 4.2rem;
+        &-link {
+            @include text(1.1rem, mp, 3rem, $text-cl, uppercase);
+            letter-spacing: 0.16rem;
+            @include transition($t $cubic);
+            &.--arrow {
+                display: inline-flex;
+                gap: 2.6rem;
+                align-items: baseline;
+                letter-spacing: 0;
+                &::after {
+                    content: "";
+                    //background-image: url(../../../img/home_page/arrow_menu.png);
+                    background-image: url(../img/home_page/arrow_menu.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 2.2rem;
+                    height: 0.8rem;
+                    @include transition(transform $t $cubic);
+                }
+                &:hover {
+                    &::after {
+                        @include transform(translateX(0.5rem));
+                        @include transition(transform $t $cubic);
+                    }
+                }
+                &.--white-cl {
+                    &::after {
+                        background-image: url(../img/home_page/arrow_btn.png);
+                    }
+                }
+            }
+            &:hover {
+                font-weight: bold;
+                @include transition($t $cubic);
+            }
+        }
+    }
+
+    &__button {
+        position: absolute;
+        top: 26.9rem;
+        left: 0;
+        background-color: $dark-blue;
+        padding: 3.6rem 7rem 10.5rem 7rem;
+        @include visible(1);
+        @include transform(scaleX(1));
+        @include transform-origin(left center);
+        @include transition(transform $t $cubic);
+        cursor: pointer;
+        &-logo {
+            position: relative;
+            width: 4rem;
+            height: 3.9rem;
+            background-image: url(../img/home_page/logo_icon.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            @include transition($t $cubic);
+            &::after {
+                content: "";
+                position: absolute;
+                top: calc(100% + 2rem);
+                left: 0;
+                width: 100%;
+                height: 2.1rem;
+                background-image: url(../img/home_page/burger_btn.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                @include transition($t $cubic);
+            }
+        }
+        &:hover {
+            background-color: $white;
+            padding: 3.6rem 2.7rem 7.5rem 8.9rem;
+            @include transition($t $cubic);
+            .header__button-logo {
+                width: 9rem;
+                height: 6.9rem;
+                background-image: url(../img/home_page/logo_full_icon.png);
+                @include transition($t $cubic);
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -1.2rem;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background-image: none;
+                    background-color: $black;
+                    @include transition($t $cubic);
+                }
+                &::before {
+                    position: absolute;
+                    content: "menu";
+                    right: calc(100% + 2.8rem);
+                    top: calc(100% + 0.4rem);
+                    @include text(1.2rem, mpb, 3rem, $black, uppercase);
+                    letter-spacing: 0;
+                    @include transition($t $cubic);
+                }
+            }
+        }
+    }
+    &__menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: max-content;
+        height: 100vh;
+        background-color: $dark;
+        @include visible(0);
+        @include transform(scaleX(0));
+        @include transform-origin(left center);
+        @include transition($t $cubic);
+        &-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 2.2rem;
+            margin-block: 4.5rem;
+            padding-left: 2.15rem;
+            padding-right: 0.85rem;
+            .home {
+                @include text(1.1rem, mp, 3rem, #fffefe, uppercase);
+                letter-spacing: 0.16rem;
+            }
+            .social {
+                display: flex;
+                gap: 2.9rem;
+                align-items: center;
+                a {
+                    display: flex;
+                    @include text(1.1rem, mp, 3rem, $white, uppercase);
+                    letter-spacing: 0;
+                }
+                .icon {
+                    display: flex;
+                    gap: 2rem;
+                    align-items: center;
+                    .mail {
+                        width: 2.2rem;
+                        height: 1.6rem;
+                    }
+                    .facebook {
+                        width: 1.1rem;
+                        height: 2.2rem;
+                    }
+                }
+            }
+        }
+        &-list {
+            display: grid;
+            gap: 5rem;
+            padding: 10.5rem 0.75rem 10.5rem 11.35rem;
+            .item {
+                display: inline-flex;
+                align-items: baseline;
+                padding: 0 15.1rem 0 3.1rem;
+                a {
+                    @include text(2.6rem, eb, 3rem, $granite, uppercase);
+                    letter-spacing: -0.4px;
+                    @include transition($t $cubic);
+                }
+                &:last-child {
+                    @include text(1.4rem, ebsb, 3rem, $granite, uppercase);
+                    a {
+                        @include text(1.4rem, ebsb, 3rem, $granite, uppercase);
+                    }
+                }
+                &:first-child {
+                    position: relative;
+                    a {
+                        color: $battleship;
+                    }
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -1rem;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        background-color: #7b7b7b;
+                        z-index: 10;
+                        @include transition($t $cubic);
+                    }
+                }
+                &:hover {
+                    a {
+                        color: $white !important;
+                        @include transition($t $cubic);
+                    }
+                    &::after {
+                        background-color: $white;
+                        @include transition($t $cubic);
+                    }
+                }
+            }
+        }
+        &-button {
+            @include mid(true);
+            flex-direction: column;
+            gap: 4rem;
+            position: absolute;
+            top: 19.7rem;
+            left: 2.7rem;
+            padding: 0 2.1rem;
+            .logo {
+                position: relative;
+                width: 4rem;
+                height: 3.9rem;
+                img {
+                    @include midimg(100%);
+                }
+            }
+            .close {
+                position: relative;
+                width: 3.1rem;
+                height: 3.1rem;
+                cursor: pointer;
+                img {
+                    @include midimg(100%);
+                }
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                top: 5.9rem;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: $white;
+            }
+        }
+        &.--active {
+            @include visible(1);
+            @include transform(scaleX(1));
+            @include transition($t $cubic);
+        }
+    }
+    &.--scroll {
+        .nav {
+            @include visible(1);
+            @include transform(scaleY(1));
+            @include transition($t $cubic);
+        }
+        .header__top{
+            display: none;
+        }
+        .header__button,
+        .header__menu {
+            @include visible(0);
+            @include transition($t $cubic);
+        }
+        .header__button,
+        .header__menu {
+            @include transform(scaleX(0));
+            @include transform-origin(left center);
+        }
+    }
+    @include md {
+        &__button {
+            padding: 2.2rem 4.6rem 7.1rem 4.6rem;
+        }
+    }
+    @include sm {
+        background-color: $dark-blue;
+        &__top,
+        &__second,
+        &__button {
+            display: none;
+        }
+        &__menu {
+            width: 100vw;
+            margin-top: var(--height-header);
+            &-button {
+                display: none;
+            }
+            &-top {
+                height: 3.8rem;
+                padding: 0;
+                margin: 5.7rem auto;
+                .home {
+                    display: none;
+                }
+                .social {
+                    gap: 7.9rem;
+                    a {
+                        font-size: 1.85rem;
+                        line-height: 5.05rem;
+                    }
+                    .link {
+                        margin-bottom: -1.25rem;
+                    }
+                    .icon {
+                        gap: 6.2rem;
+                        .mail {
+                            width: 3.7rem;
+                            height: 2.7rem;
+                        }
+                        .facebook {
+                            width: 1.8rem;
+                            height: 3.8rem;
+                        }
+                    }
+                }
+            }
+            &-list {
+                display: grid;
+                gap: 6.3rem;
+                padding: 5.8rem 0;
+                max-height: 67rem;
+                overflow-y: scroll;
+                .item {
+                    padding: 0;
+                    a {
+                        @include text(3.6rem, eb, 3rem, $granite, uppercase);
+                        letter-spacing: -0.4px;
+                    }
+                    &:last-child {
+                        @include text(2.8rem, ebsb, 3rem, $granite, uppercase);
+                        letter-spacing: -0.4px;
+                        padding-top: 5.6rem;
+                        a {
+                            @include text(2.8rem, ebsb, 3rem, $granite, uppercase);
+                            letter-spacing: -0.4px;
+                        }
+                    }
+                    &:first-child {
+                        &::after {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include xxs {
+        &__menu {
+            &-top {
+                height: 1.9rem;
+                margin: 3.4rem auto;
+                .social {
+                    gap: 5rem;
+                    a {
+                        font-size: 1.6rem;
+                        line-height: 4rem;
+                    }
+                    .link {
+                        margin-bottom: 0;
+                    }
+                    .icon {
+                        gap: 3rem;
+                        .mail {
+                            width: 1.85rem;
+                            height: 1.35rem;
+                        }
+                        .facebook {
+                            width: 0.9rem;
+                            height: 1.9rem;
+                        }
+                    }
+                }
+            }
+            &-list {
+                display: grid;
+                gap: 4rem;
+                padding: 2.8rem 0;
+                max-height: 50rem;
+                .item {
+                    padding: 0;
+                    a {
+                        @include text(2.6rem, eb, 3rem, $granite, uppercase);
+                    }
+                    &:last-child {
+                        @include text(1.8rem, ebsb, 3rem, $granite, uppercase);
+                        padding-top: 4.6rem;
+                        a {
+                            @include text(1.8rem, ebsb, 3rem, $granite, uppercase);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

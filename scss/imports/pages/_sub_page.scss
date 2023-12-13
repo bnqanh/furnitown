@@ -1,0 +1,1390 @@
+.sub_page {
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        max-height: 45rem;
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            &-img {
+                @include midimg(100%);
+            }
+        }
+        &__content {
+            @include text(2.4rem, eb, 5rem, $white, uppercase);
+
+            padding-top: 17.2rem;
+            margin: 0 7rem;
+            &-title {
+                display: none;
+            }
+            &-desc {
+                float: right;
+                text-align: right;
+                max-width: 46rem;
+            }
+        }
+    }
+    .product {
+        padding-block: 3.6rem 5rem;
+        &__line {
+            position: relative;
+            margin-left: 8.5rem;
+            margin-right: 8.5rem;
+            &-content {
+                position: relative;
+                width: 100%;
+                display: flex;
+                gap: 1.1rem;
+                align-items: center;
+                max-height: 15.3rem;
+                padding-block: 5.3rem 4.2rem;
+                .btn {
+                    position: absolute;
+                    bottom: 4.2rem;
+                    right: 0;
+                    @include transform(translateY(calc(50% - 0.4rem)));
+                }
+                .number {
+                    @include text(9rem, eb, 13.5rem, $gold-title, uppercase);
+                    letter-spacing: -0.4px;
+                    padding-bottom: 1.1rem;
+                }
+                .text {
+                    letter-spacing: 0;
+                    padding-top: 0.8rem;
+                    h2 {
+                        @include text(1.8rem, eb, 4rem, $text-cl2, uppercase);
+                    }
+                    p {
+                        @include text(1.2rem, arial, 2rem, $black, none);
+                        max-width: 43rem;
+                        @include overtext(2);
+                    }
+                }
+            }
+            &-carousel {
+                padding-bottom: 3.6rem;
+                .carousel-cell {
+                    position: relative;
+                    width: 31.5%;
+                    min-width: 31.5rem;
+                    margin-right: 3rem;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        right: -1.5rem;
+                        width: 1px;
+                        height: 45rem;
+                        background-color: $gray-line;
+                    }
+                }
+            }
+            &-carousel_btns {
+                position: absolute;
+                left: 0;
+                bottom: 9rem;
+                width: 100%;
+                height: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid $gray-line;
+            }
+            &-wrapper {
+                .item {
+                    padding-bottom: 3.7rem;
+                }
+            }
+            &-bottom {
+                width: 100%;
+                padding-top: 11.5rem;
+                .load_more {
+                    flex-direction: column;
+                    gap: 2rem;
+                    @include mid(true);
+                    position: absolute;
+                    bottom: -1rem;
+                    left: 50%;
+                    @include transform(translateX(-50%));
+                    cursor: pointer;
+                    img {
+                        width: 8px;
+                        height: 22px;
+                        @include animation(mouse $t $cubic infinite alternate);
+                        @include keyframes(mouse) {
+                            0% {
+                                @include transform(translateY(0%));
+                            }
+                            20% {
+                                @include transform(translateY(-4%));
+                            }
+                            40% {
+                                @include transform(translateY(-8%));
+                            }
+                            60% {
+                                @include transform(translateY(-12%));
+                            }
+                            80% {
+                                @include transform(translateY(-16%));
+                            }
+                            100% {
+                                @include transform(translateY(-20%));
+                            }
+                        }
+                    }
+                    span {
+                        @include text(1.1rem, arial, 4rem, #909090, uppercase);
+                        letter-spacing: 0;
+                        margin-block: -1.45rem;
+                    }
+                    &::selection {
+                        background-color: transparent;
+                    }
+                    * {
+                        &::selection {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .details {
+        &__wrapper {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                width: 100vw;
+                height: 1px;
+                background-color: #bababa;
+                @include transform(translateX(-50%));
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+        }
+        &__title {
+            display: none;
+        }
+        &__images {
+            flex: 0 0 74.188%;
+            max-width: 74.188%;
+            padding-top: 5rem;
+            padding-right: 8.5rem;
+            &-carousel {
+                .carousel-cell {
+                    width: 100%;
+                    .image {
+                        position: relative;
+                        width: 100%;
+                        aspect-ratio: 800/541;
+                        background-color: #d3d3d3;
+                        img {
+                            @include midimg(100%);
+                        }
+                    }
+                }
+            }
+            &-buttons {
+                position: relative;
+                padding-block: 3rem 4rem;
+                .play {
+                    display: inline-flex;
+                    gap: 2rem;
+                    align-items: center;
+                    height: 8rem;
+                    .prev,
+                    .next {
+                        width: 6.3rem;
+                        height: 6.3rem;
+                        &.invisible {
+                            opacity: 0.4;
+                        }
+                    }
+                }
+                .zoom {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 10rem;
+                    height: 3rem;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 1.8rem;
+                    padding-left: 2.4rem;
+                    @include text(1.1rem, arial, 6rem, $white, uppercase);
+                    letter-spacing: 0.32px;
+                    font-weight: bold;
+                    background-color: $dark-blue;
+                    overflow: hidden;
+                    cursor: pointer;
+                    &::after {
+                        content: "";
+                        width: 1.3rem;
+                        height: 1.3rem;
+                        background-image: url(../img/product_page/zoom_icon.png);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+                    &::selection {
+                        background-color: transparent;
+                    }
+                    * {
+                        &::selection {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+        &__content {
+            flex: 0 0 25.812%;
+            max-width: 25.812%;
+            padding: 3.2rem 0 3.2rem 2rem;
+            border-left: 1px solid #bababa;
+            &-title {
+                @include text(3.2rem, eb, 4rem, $text-cl2, none);
+                letter-spacing: 0;
+                max-width: 28rem;
+            }
+
+            &-table {
+                width: 100%;
+                @include text(1.4rem, arial, 5.4rem, $black, none);
+                letter-spacing: 1.6px;
+                margin-bottom: 8rem;
+                tr {
+                    td {
+                        &:first-child {
+                            padding-right: 1rem;
+                        }
+                    }
+                }
+                .price {
+                    &__text,
+                    &__cost {
+                        letter-spacing: 1.6px;
+                        font-weight: bold;
+                        padding-block: 3.2rem;
+                    }
+                    &__text {
+                        @include text(1.2rem, arial, 5.4rem, #5b4816, uppercase);
+                    }
+                    &__cost {
+                        @include text(1.6rem, arial, 5.4rem, #5b4816, lowercase);
+                    }
+                }
+            }
+            &-desc {
+                @include text(1.2rem, arial, 2rem, $black, none);
+                letter-spacing: 0;
+                max-width: 24rem;
+                h4 {
+                    font-size: 1.1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1.6px;
+                    font-weight: bold;
+                    padding-bottom: 2.4rem;
+                }
+            }
+        }
+        &__article {
+            margin-left: 10rem;
+            margin-right: 10rem;
+            &-image {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 97/47;
+                margin-top: 8.1rem;
+                overflow: hidden;
+                img {
+                    @include midimg(100%);
+                }
+            }
+            &-text {
+                letter-spacing: 1.6px;
+                padding-bottom: 8.1rem;
+                @include text(1.2rem, arial, 2.2rem, #212121, initial);
+                .title {
+                    max-width: 77rem;
+                    @include text(2rem, eb, 3.2rem, #212121, uppercase);
+                    padding-block: 6.1rem 3.4rem;
+                }
+                .desc {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                .time {
+                    font-style: italic;
+                    padding-block: 3rem 3.4rem;
+                }
+                .desc,
+                .content {
+                    max-width: 71rem;
+                }
+            }
+        }
+        &__project {
+            margin-left: 8rem;
+            margin-right: 8rem;
+            &-carousel {
+                padding-block: 2rem;
+                .carousel-cell {
+                    width: 100%;
+                    .image {
+                        position: relative;
+                        width: 100%;
+                        aspect-ratio: 97/47;
+                        overflow: hidden;
+                        cursor: pointer;
+                        img {
+                            @include midimg(100%);
+                        }
+                    }
+                }
+            }
+            &-btns {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            &-text {
+                letter-spacing: 1.6px;
+                padding-bottom: 8.1rem;
+                @include text(1.2rem, arial, 2.2rem, #212121, initial);
+                .title {
+                    @include text(2rem, eb, 3.2rem, #212121, uppercase);
+                    padding-block: 6.1rem 3.4rem;
+                }
+                .desc {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                .time {
+                    font-style: italic;
+                    padding-block: 3rem 3.4rem;
+                }
+            }
+        }
+    }
+    .others {
+        &__product {
+            border-bottom: 1px solid $gray-line;
+            padding-block: 5.6rem 3rem;
+            &-title {
+                @include text(1.8rem, eb, 4rem, $text-cl2, uppercase);
+                letter-spacing: 0;
+                text-align: center;
+                padding-block: 3.6rem;
+            }
+        }
+        &__news {
+            margin-left: 8.5rem;
+            margin-right: 8.5rem;
+            padding-block: 5rem 6.6rem;
+            &-title {
+                position: relative;
+                @include text(1.1rem, arial, 2.2rem, #212121, uppercase);
+                letter-spacing: 1.6px;
+                font-weight: bold;
+                text-align: center;
+                &::before,
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    width: calc(50% - 8.5rem);
+                    height: 1px;
+                    background-color: $gray-border;
+                }
+                &::before {
+                    left: 0;
+                }
+                &::after {
+                    right: 0;
+                }
+            }
+            &-carousel {
+                padding-top: 4.2rem;
+                .carousel-cell {
+                    width: 31.5%;
+                    min-width: 31.5rem;
+                    margin-right: 4rem;
+                }
+            }
+        }
+    }
+    .contact {
+        &__wrapper {
+            text-align: center;
+            padding-block: 6.5rem 9.6rem;
+            &-title {
+                @include text(1.4rem, eb, 4rem, $text-cl2, uppercase);
+                letter-spacing: 0;
+            }
+            &-desc,
+            &-buttons {
+                @include mid(true);
+            }
+            &-desc {
+                @include text(1.2rem, arial, 2rem, $text-cl2, none);
+                letter-spacing: 0;
+
+                p {
+                    max-width: 51rem;
+                }
+            }
+            &-buttons {
+                gap: 3rem;
+                padding-block: 5.4rem;
+                .btn {
+                    width: 20rem;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    .prev,
+    .next {
+        @include mid(true);
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+        background-color: rgba($dark, 0.6);
+        cursor: pointer;
+        @include transition($t $cubic);
+        .image {
+            position: relative;
+            width: 1.3rem;
+            height: 1.7rem;
+            overflow: hidden;
+            img {
+                @include midimg(100%);
+            }
+        }
+        &.invisible {
+            @include visible(0);
+            @include transition($t $cubic);
+        }
+        &:hover {
+            background-color: $dark;
+            @include transition($t $cubic);
+        }
+    }
+    .prev {
+        .image {
+            @include transform(rotate(180deg));
+        }
+    }
+    .news {
+        &__wrapper {
+            margin-top: -19.1rem;
+            &-title {
+                @include text(2.6rem, eb, 5rem, $white, uppercase);
+                letter-spacing: 1.6px;
+                border-bottom: 1px solid $white;
+                padding-bottom: 4.5rem;
+                margin-bottom: 6rem;
+            }
+        }
+    }
+    .project {
+        padding-top: 17rem;
+        &__wrapper {
+            &-header {
+                position: relative;
+                padding-bottom: 5.4rem;
+                margin-bottom: 8.6rem;
+                border-bottom: 1px solid $gray-border;
+                .title {
+                    @include text(2.6rem, eb, 5rem, #090909, uppercase);
+                    letter-spacing: 1.6px;
+                }
+                .desc {
+                    max-width: 50rem;
+                    padding-top: 1.6rem;
+                    @include text(1.2rem, arial, 2.6rem, #090909, none);
+                    letter-spacing: 1.6px;
+                }
+                .select {
+                    position: absolute;
+                    right: 0;
+                    bottom: 6rem;
+                    width: max-content;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+    .services {
+        padding-top: 8.5rem;
+        &__heading {
+            @include text(3.2rem, eb, 5rem, #101010, uppercase);
+            letter-spacing: 1.6px;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+        &__item {
+            margin-left: 7rem;
+            margin-right: 7rem;
+            padding-bottom: 8rem;
+            &-image {
+                position: relative;
+                width: 100%;
+                aspect-ratio: 1030/515;
+                overflow: hidden;
+                margin-top: 2rem;
+                img {
+                    @include midimg(100%);
+                }
+            }
+            &-content {
+                display: flex;
+                justify-content: center;
+                column-gap: 7rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
+                .text {
+                    letter-spacing: 1.6px;
+                    &__title {
+                        @include text(2.6rem, eb, 5rem, #090909, uppercase);
+                        padding-top: 3.3rem;
+                        &.--center {
+                            text-align: center;
+                        }
+                    }
+                    &__desc,
+                    &__detail {
+                        @include text(1.2rem, arial, 2.6rem, #090909, none);
+                    }
+
+                    &__desc {
+                        padding-block: 1.6rem 3.6rem;
+                        &.--center {
+                            max-width: 63rem;
+                            text-align: center;
+                            padding-block: 0.7rem 3.3rem;
+                        }
+                    }
+                }
+                .buttons {
+                    @include mid(true);
+                    gap: 3rem;
+                    align-self: flex-start;
+                    margin-top: 11rem;
+                    .btn {
+                        width: 20rem;
+                        overflow: hidden;
+                    }
+                }
+            }
+            &:not(:last-child) {
+                border-bottom: 1px solid $gray-border;
+                margin-bottom: 4.2rem;
+            }
+        }
+    }
+    .news,
+    .project {
+        &__wrapper {
+            margin-left: 8.5rem;
+            margin-right: 8.5rem;
+            &-item {
+                margin-bottom: 3.4rem;
+            }
+            .pagination-menu {
+                padding-block: 3.8rem 8rem;
+            }
+        }
+    }
+    .about {
+        padding-top: calc(var(--height-header) + 10.4rem);
+        &__heading {
+            @include text(4.4rem, eb, 5rem, #745a2d, uppercase);
+        }
+        &__title {
+            @include text(1.4rem, arial, 2rem, $black, uppercase);
+            padding-block: 1.6rem 4.5rem;
+        }
+        &__heading,
+        &__title {
+            letter-spacing: 1.6;
+            text-align: center;
+        }
+        &__content {
+            margin-left: 7.2rem;
+            margin-right: 7.2rem;
+            .desc {
+                @include text(1.4rem, arial, 4.6rem, #191919, none);
+                letter-spacing: 1.6px;
+            }
+            .img {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                img {
+                    @include midimg(100%);
+                }
+            }
+            &-one {
+                .desc {
+                    text-align: center;
+                    padding: 5.4rem 10rem 1.8rem;
+                }
+                .img {
+                    aspect-ratio: 1030/518;
+                }
+            }
+            &-line {
+                position: relative;
+                padding-top: 23.5rem;
+                margin-bottom: -1.6rem;
+                width: 100%;
+                &::before {
+                    @include mid;
+                    content: "";
+                    width: 1px;
+                    height: 100%;
+                    background-color: $gray-line;
+                }
+            }
+            &-two {
+                display: flex;
+                justify-content: space-between;
+                padding-left: 2.8rem;
+                padding-right: 2.8rem;
+                .desc {
+                    max-width: 35.5rem;
+                }
+                .img {
+                    flex: 0 0 51.54%;
+                    aspect-ratio: 500/521;
+                    margin-top: 13rem;
+                }
+            }
+        }
+        &__founder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-block: 15.8rem 9.6rem;
+            p {
+                letter-spacing: 1.6px;
+                text-align: center;
+            }
+            &-intro {
+                max-width: 70rem;
+                padding-bottom: 2.6rem;
+            }
+            &-slogan {
+                max-width: 62rem;
+            }
+            &-intro,
+            &-slogan {
+                @include text(1.4rem, arial, 2.6rem, #191919, none);
+            }
+            &-name {
+                @include text(1.1rem, arial, 2.6rem, #191919, uppercase);
+                font-weight: bold;
+            }
+            &-role {
+                @include text(1.1rem, arial, 2.6rem, #191919, none);
+            }
+            &-image {
+                position: relative;
+                width: 48.72%;
+                aspect-ratio: 570/265;
+                margin-top: 4.2rem;
+                margin-bottom: 8.6rem;
+                .avatar {
+                    @include midimg(100%);
+                }
+                .signature {
+                    position: absolute;
+                    top: 94.3%;
+                    left: 78.4%;
+                    z-index: 10;
+                    width: 15rem;
+                    height: 5.2rem;
+                }
+            }
+            &-buttons {
+                @include mid(true);
+                gap: 3rem;
+                padding-block: 4.6rem;
+                .btn {
+                    width: 20rem;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+    .contactpage {
+        position: relative;
+        padding-block: var(--height-header) 11.5rem;
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            &-img {
+                @include midimg(100%);
+            }
+        }
+        &__content {
+            @include text(1.2rem, arial, 2.2rem, $white, none);
+            letter-spacing: 1.6px;
+            margin-left: 17rem;
+            margin-right: 17rem;
+            &-info {
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 1.5rem;
+                justify-content: space-between;
+                padding: 8.8rem 3rem 4rem;
+                .title {
+                    font-weight: bold;
+                    color: #ab9051;
+                    letter-spacing: 0;
+                    text-transform: uppercase;
+                    padding-bottom: 1rem;
+                }
+                .intro {
+                    max-width: 31rem;
+                }
+                .method {
+                    display: flex;
+                    flex-wrap: wrap;
+                    column-gap: 6.4rem;
+                    row-gap: 1.5rem;
+                    max-width: 35rem;
+                }
+            }
+            &-message {
+                padding-left: 3rem;
+                .desc {
+                    max-width: 30rem;
+                }
+                .form {
+                    position: relative;
+                    display: flex;
+                    gap: 5rem;
+                    padding-block: 1.8rem 3rem;
+                    &__left,
+                    &__right {
+                        width: 100%;
+                        input,
+                        textarea {
+                            @include text(1.2rem, arial, 3.2rem, #d4cebf, none);
+                            width: 100%;
+                            max-width: 37rem;
+                            outline: none;
+                            background-color: transparent;
+                            border: none;
+                            margin-bottom: 2.6rem;
+                            border-bottom: 1px solid #7c6e4f;
+                        }
+                        .message {
+                            position: relative;
+                            max-width: 37rem;
+                            overflow: hidden;
+                            textarea {
+                                line-height: 4rem;
+                                border: none;
+                                margin-top: -0.8rem;
+                                @include customscroll(0.4rem, #d4cebf, #7c6e4f);
+                            }
+                            &__line {
+                                position: absolute;
+                                left: 0;
+                                top: 50%;
+                                width: 100%;
+                                height: 1px;
+                                background-color: #7c6e4f;
+                                &::before,
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 1px;
+                                    background-color: #7c6e4f;
+                                }
+                                &::before {
+                                    top: 4rem;
+                                }
+                                &::after {
+                                    bottom: 4rem;
+                                }
+                            }
+                        }
+                    }
+                    &__submit {
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        @include mid(true);
+                        width: 8.5rem;
+                        height: 3.5rem;
+                        @include text(1rem, arial, 1rem, #d4cebf, uppercase);
+                        letter-spacing: 0.8px;
+                        font-weight: bold;
+                        background-color: $black;
+                        border: 1px solid #a19574;
+                        cursor: pointer;
+                        @include transition($t $cubic);
+                        &:hover {
+                            color: $black;
+                            background-color: #d4cebf;
+                            @include transition($t $cubic);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        margin-top: 0;
+        padding-block: 7rem 23.7rem;
+    }
+    @include md {
+        .product {
+            &__line {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .details {
+            &__images {
+                flex: 0 0 65%;
+                max-width: 65%;
+                padding-top: 4rem;
+                padding-right: 2rem;
+            }
+            &__content {
+                flex: 0 0 35%;
+                max-width: 35%;
+                padding: 3rem 0 3rem 2rem;
+                &-table {
+                    width: 80%;
+                    margin-bottom: 5rem;
+                    .price {
+                        &__text,
+                        &__cost {
+                            padding-block: 2rem;
+                        }
+                    }
+                }
+                &-desc {
+                    h4 {
+                        padding-bottom: 2rem;
+                    }
+                }
+            }
+            &__article {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .others {
+            &__news {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .news,
+        .project {
+            &__wrapper {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        .news {
+            &__wrapper {
+                &-title {
+                    text-align: center;
+                }
+            }
+        }
+        .project {
+            &__wrapper {
+                &-header {
+                    padding-left: 10rem;
+                }
+            }
+        }
+        .services {
+            &__item {
+                &-content {
+                    align-items: center;
+                    flex-direction: column;
+                    .buttons {
+                        align-self: initial;
+                        margin-top: 8rem;
+                    }
+                }
+            }
+        }
+        .about {
+            &__content {
+                &-two {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+        .contactpage {
+            &__content {
+                margin-left: 6rem;
+                margin-right: 6rem;
+                &-info {
+                    .method {
+                        column-gap: 5.4rem;
+                    }
+                }
+                &-message {
+                    .form {
+                        gap: 3.6rem;
+                    }
+                }
+            }
+        }
+    }
+    @include sm {
+        .hero {
+            margin-top: var(--height-header);
+            &__content {
+                width: 100%;
+                @include mid(true);
+                @include mid(false);
+                @include text(2rem, eb, 5rem, $white, uppercase);
+                padding: 0;
+                margin: 0;
+                &-desc {
+                    max-width: 38rem;
+                    text-align: left;
+                }
+            }
+        }
+        .product {
+            padding-block: 1.4rem;
+            &__line {
+                &-carousel_btns {
+                    bottom: 50%;
+                }
+                &-bottom {
+                    .load_more {
+                        bottom: 2.6rem;
+                    }
+                }
+            }
+        }
+        .details {
+            margin-top: var(--height-header);
+            &__wrapper {
+                flex-direction: column;
+            }
+            &__images {
+                position: relative;
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-right: 0;
+                &-buttons {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 0;
+                    padding-block: 0;
+                    .zoom {
+                        bottom: 0;
+                        top: initial;
+                    }
+                    .play {
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                    }
+                }
+            }
+            &__content {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 2rem 0;
+                border-left: none;
+                &-title,
+                &-desc {
+                    max-width: max-content;
+                }
+            }
+            &__article {
+                &-image {
+                    margin-top: 2rem;
+                }
+                &-text {
+                    letter-spacing: 0.8px;
+                    padding-bottom: 4rem;
+                    .title {
+                        padding-block: 4.6rem 3.4rem;
+                    }
+                    .time {
+                        padding-block: 2rem 3.4rem;
+                    }
+                    .title,
+                    .desc,
+                    .content {
+                        max-width: 100%;
+                    }
+                }
+            }
+            &__project {
+                margin-left: 0;
+                margin-right: 0;
+                &-carousel {
+                    .carousel-cell {
+                        .image {
+                            aspect-ratio: 3/2;
+                        }
+                    }
+                }
+                &-text {
+                    letter-spacing: 0.8px;
+                    padding-bottom: 4rem;
+                    .title {
+                        padding-block: 4.6rem 3.4rem;
+                    }
+                    .time {
+                        padding-block: 2rem 3.4rem;
+                    }
+                }
+            }
+        }
+        .contact {
+            &__wrapper {
+                padding-block: 4rem;
+                &-buttons {
+                    .btn {
+                        padding: 1rem 2rem;
+                        min-width: 21.5rem;
+                    }
+                }
+            }
+        }
+        .project {
+            padding-top: var(--height-header);
+            &__wrapper {
+                &-header {
+                    padding: 4rem 6rem;
+                }
+                .select {
+                    bottom: -8.6rem;
+                    @include transform(translateY(-60%));
+                }
+            }
+        }
+        .services {
+            padding-top: calc(var(--height-header) + 4rem);
+            &__heading {
+                font-size: 2.4rem;
+                letter-spacing: 0.8px;
+            }
+            &__item {
+                margin-left: 0;
+                margin-right: 0;
+                padding-bottom: 6rem;
+                &-content {
+                    padding-left: 0;
+                    padding-right: 0;
+                    .text {
+                        letter-spacing: 0.8px;
+                        &__title {
+                            font-size: 2.2rem;
+                            padding-top: 2rem;
+                        }
+                        &__desc {
+                            padding-block: 1rem 2.4rem;
+                            &.--center {
+                                padding-block: 1rem 2.4rem;
+                            }
+                        }
+                    }
+                    .buttons {
+                        .btn {
+                            padding: 1rem 2rem;
+                            min-width: 21.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .about {
+            padding-top: calc(var(--height-header) + 6rem);
+            &__content {
+                margin-left: 0;
+                margin-right: 0;
+                &-line {
+                    padding-top: 12rem;
+                    margin-bottom: 0;
+                    &::before {
+                        width: 50%;
+                        height: 1px;
+                    }
+                }
+                &-one,
+                &-two {
+                    .desc {
+                        text-align: center;
+                        padding: 5.4rem;
+                    }
+                }
+                &-two {
+                    flex-direction: column;
+                    .desc {
+                        max-width: 100%;
+                        order: 1;
+                    }
+                    .img {
+                        max-height: 35rem;
+                        margin-top: 0;
+                    }
+                }
+            }
+            &__founder {
+                padding-block: 8rem;
+                border-top: 1px solid $gray-line;
+                &-intro,
+                &-slogan {
+                    max-width: 100%;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+                &-slogan {
+                    border-top: 1px solid $gray-border;
+                    padding-top: 4rem;
+                }
+                &-role {
+                    padding-bottom: 4rem;
+                }
+                &-image {
+                    order: -1;
+                    width: 100%;
+                    margin-top: 0;
+                    .signature {
+                        left: initial;
+                        right: 1rem;
+                    }
+                }
+                &-buttons {
+                    .btn {
+                        padding: 1rem 2rem;
+                        min-width: 21.5rem;
+                    }
+                }
+            }
+        }
+        .prev,
+        .next {
+            width: 6rem;
+            height: 6rem;
+        }
+        .contactpage {
+            padding-block: var(--height-header) 8rem;
+            &__content {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+                font-size: 1.8rem;
+                &-info {
+                    padding: 8.8rem 0 4rem;
+                    row-gap: 3rem;
+                    .title {
+                        padding-bottom: 1.8rem;
+                    }
+                    .intro,
+                    .method {
+                        max-width: 100%;
+                    }
+                    .method {
+                        row-gap: 3rem;
+                    }
+                }
+                &-message {
+                    padding-left: 0;
+                    .desc {
+                        max-width: 100%;
+                    }
+                    .form {
+                        flex-direction: column;
+                        gap: 0;
+                        padding-block: 6rem;
+                        &__left,
+                        &__right {
+                            input,
+                            textarea {
+                                max-width: 100%;
+                                font-size: 1.8rem;
+                                margin-bottom: 3.6rem;
+                            }
+                        }
+                        &__right {
+                            .message {
+                                max-width: 100%;
+                                textarea {
+                                    margin-top: 0;
+                                }
+                            }
+                        }
+                        &__submit {
+                            right: 50%;
+                            width: 14rem;
+                            height: 4.8rem;
+                            font-size: 1.6rem;
+                            letter-spacing: 1.6px;
+                            @include transform(translateX(50%));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include xxs {
+        .hero {
+            max-height: 34rem;
+            &__content {
+                font-size: 1.8rem;
+                padding: 1rem;
+                &-desc {
+                    max-width: 35rem;
+                    text-align: center;
+                }
+            }
+        }
+        .product {
+            &__line {
+                &-content {
+                    padding-block: 4rem 4.8rem;
+                    .btn {
+                        bottom: 2.2rem;
+                    }
+                }
+            }
+        }
+        .details {
+            &__content {
+                padding: 1rem 0;
+                &-title {
+                    font-size: 2.6rem;
+                }
+                &-table {
+                    line-height: 4rem;
+                    margin-bottom: 4rem;
+                }
+            }
+            &__project {
+                &-carousel {
+                    .carousel-cell {
+                        .image {
+                            aspect-ratio: 1/1;
+                        }
+                    }
+                }
+            }
+        }
+        .contact {
+            &__wrapper {
+                &-desc {
+                    p {
+                        max-width: 32rem;
+                    }
+                }
+                &-buttons {
+                    .btn {
+                        font-size: 1.4rem;
+                        padding: 1rem;
+                        min-width: 15.5rem;
+                    }
+                }
+            }
+        }
+        .project {
+            &__wrapper {
+                &-header {
+                    padding: 4rem 2rem;
+                }
+                .select {
+                    bottom: -8.6rem;
+                    @include transform(translateY(-60%));
+                }
+            }
+        }
+        .services {
+            &__item {
+                &-content {
+                    .buttons {
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+        .about {
+            padding-top: calc(var(--height-header) + 4rem);
+            &__title {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                line-height: 3rem;
+            }
+            &__content {
+                &-line {
+                    padding-top: 9rem;
+                    margin-bottom: 0;
+                }
+                &-one,
+                &-two {
+                    .desc {
+                        padding: 2rem;
+                        letter-spacing: 0.8px;
+                    }
+                }
+                &-two {
+                    .img {
+                        max-height: 26rem;
+                        margin-top: 2rem;
+                    }
+                }
+            }
+            &__founder {
+                &-image {
+                    min-height: 24rem;
+                }
+                &-buttons {
+                    flex-direction: column;
+                }
+            }
+        }
+        .prev,
+        .next {
+            width: 5.2rem;
+            height: 5.2rem;
+        }
+    }
+}

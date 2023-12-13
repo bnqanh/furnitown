@@ -1,0 +1,70 @@
+//======================================================BOXED LAYOUT=======================================================
+
+$container-max-width: 100%;
+$container-width: 117rem; // tùy thuộc vào container của bản thiết kế // $container-width = container (đo từ bản thiết kế) + 30px
+
+/*GRID - media queries breakpoints*/
+$xxs-min: 36em; //576px; // CÓ THỂ TÙY CHỈNH
+$xs-min: 48em; //768px; // KHÔNG THAY ĐỔI
+$sm-min: 62em; //992px; // KHÔNG THAY ĐỔI
+$md-min: 75em; //1200px; // KHÔNG THAY ĐỔI
+$lg-min: 100em; //1600px; // CÓ THỂ TÙY CHỈNH
+
+$xxs-max: ($xxs-min - 0.001em); // Small Mobile
+$xs-max: ($xs-min - 0.001em); // Mobile
+$sm-max: ($sm-min - 0.001em); // Tablet
+$md-max: ($md-min - 0.001em); // Desktop
+$lg-max: ($lg-min - 0.001em); // Large Desktop
+
+//=====================================CÁC BIẾN KHÔNG THAY ĐỔI GIÁ TRỊ KHI RESPONSIVE======================================
+// colors - tuỳ chỉnh
+$white: #fff;
+$light: #fafafa;
+$black: #000;
+$text-cl2: #010101;
+$text-cl: #0f0f0f;
+$blue: #003f5d;
+$dark-blue: #132539;
+$dark: #171717;
+$gray: #aaaaaa;
+$gray-line: #acacac;
+$gray-border: #585958;
+$battleship: #868686;
+$granite: #5f5f5f;
+$gold: #caa348;
+$gold-title: #c48b2c;
+$field-drab: #795b1d;
+$olive-drab: #665c49;
+$scroll-top: #625339;
+$menu-scroll-text: #dcdcdc;
+$select-bg: #12110f;
+$select-bg2: #715b32;
+$select-line: #4a3c21;
+// timing transition - tuỳ chỉnh
+$t: 0.4s;
+$t6s: 0.6s;
+$cubic: cubic-bezier(0.84, 0.13, 0.33, 0.97);
+
+// ========================================CÁC BIẾN CÓ THAY ĐỔI GIÁ TRỊ KHI RESPONSIVE=====================================
+
+:root {
+    --gap: 4.3rem; // gap này sử dụng cho gap cột & padding của container, container-fluid
+
+    --height-header: 7rem;
+    --height-button: 3.6rem;
+    --z-fixed: 100;
+    --z-tooltip: 10;
+
+    @media (max-width: $sm-max) {
+        // Tablet
+        --gap: 2rem;
+
+        --height-header: 11rem;
+        --height-button: 5.8rem;
+    }
+    @media (max-width: $xxs-max) {
+        // Mobile
+        --height-header: 6rem;
+        --height-button: 4.2rem;
+    }
+}
