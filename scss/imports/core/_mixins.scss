@@ -186,6 +186,8 @@
 	-webkit-box-orient: vertical;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	mask-image: linear-gradient(0deg, transparent 0px, #fff 14px);
+	-webkit-mask-image: linear-gradient(0deg, transparent 0px, #fff 14px);
 }
 @mixin size($w, $h: $w) {
 	width: $w;
